@@ -1,0 +1,33 @@
+{% include 'gallery/header.html'%}
+{% include 'gallery/primary-nav.html'%}
+
+
+
+<div class="container">
+
+<div class="panel-group" id="accordion">
+  <div class="panel panel-default">
+    <div class="panel-heading ">
+   		<a data-toggle="collapse" data-parent="#accordion" href="#about">
+      		<h2 class="panel-title img-rounded btn btn-standard">
+        	{{ site_info.display_name }}</h2>
+      </a>
+    </div>
+    <div id="about" class="panel-collapse collapse">
+      <div class="panel-body">{{site_info.body}}</div>
+    </div>
+  </div>
+</div>
+
+<h2> Galleries</h2>
+{% for group in top_groups%}
+	<div class="group col-md-12 col-sm-12 ">
+		<a class="img-rounded btn btn-standard" href='/gallery/{{ group.id }}'>
+			{{group.display_name}}
+		</a>
+	</div>
+
+{% endfor %}
+</div>
+
+{% include 'gallery/footer.html'%}

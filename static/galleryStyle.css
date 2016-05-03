@@ -1,0 +1,159 @@
+/*
+Theme Name: Noah Huber
+Theme URI: 
+Author: Benjamin Richardson
+Author URI: 
+Description: Custom theme for Noah Huber's portfolio site
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Tags: 
+
+This theme, like WordPress, is licensed under the GPL.
+Use it to make something cool, have fun, and share what you've learned with others.
+*/
+
+
+/****** general ********/
+body{
+	padding-top: 70px;
+	height: 100%;
+}
+html{
+	height: 100%;
+}
+
+.container{
+	padding-bottom: 100px;
+}
+
+.glyphicon-triangle-left{
+	float: left;
+}
+
+.glyphicon-triangle-right{
+	float: right;
+}
+
+/****** general end ********/
+
+/****** top nav ******/
+.navbar-default .navbar-brand{
+	letter-spacing: 5px;
+}
+
+#primary-nav{
+	float: right;
+}
+
+.navbar .container{
+	padding-bottom: 0px;
+}
+
+/****** top nav end ******/
+
+/****** homepage ******/
+
+#carousel-home{
+	margin-top: 40px;
+}
+
+div.carousel-inner,
+div.carousel-inner .item img
+{
+	height: 500px;
+	margin-left: auto;
+  	margin-right: auto;
+}
+
+div#carousel-home a.carousel-control.left,
+div#carousel-home a.carousel-control.right{
+	background-image: none;
+}
+
+div#carousel-home a.carousel-control span.glyphicon{
+	color: #808080;
+}
+
+div.statement{
+	margin-top: 20px;
+}
+/****** homepage  end ******/
+
+/******** paintings *********/
+
+div.artist-statement{
+	height: 75px;
+}
+
+div.artist-statement button{
+	height: 100%;
+	width: 100%;
+	border-color: #808080;
+	background-color: white;
+	color: #808080;
+	font-size: 19px;
+}
+
+div.group a{
+	height: 100%;
+	width: 100%;
+	border-color: #808080;
+	background-color: white;
+	color: #808080;
+	font-size: 19px;
+	margin-bottom: 15px;
+}
+
+div.gallery-item
+{
+	margin-top: 20px;
+	height: 350px;
+}
+
+div.gallery-item button{
+	border-style: none;
+	background-color: transparent;
+	height: 100%;
+	width: 100%;
+	background-position: 50% 50%;
+	background-size: 200%;
+}
+
+div.modal{
+	width: 100%;
+}
+
+div.modal-dialog div{
+	max-width: 100%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+div.modal-dialog{
+	min-width: 80%;
+}
+
+div.modal-dialog img{
+	max-height: 90vh;
+	padding: 15px;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+div.text-modal{
+	padding: 20px;
+	padding-left: 50px;
+	padding-right: 50px;
+	font-size: 17px;
+}
+
+/******** paintings end *********/
+
+
+@media (max-width: 970px) {
+
+	div.gallery-item{
+		height: 250px;
+	}
+
+}

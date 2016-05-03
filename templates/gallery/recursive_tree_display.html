@@ -1,0 +1,22 @@
+
+<li> 
+	{{ parent.display_name }}
+	{% if parent.group_set %}
+		<ul>
+		{% for child in parent.group_set.all %}
+			{% with parent=child template_name="gallery/recursive_tree_display.html" %}
+				{% include template_name %}
+			{% endwith %}
+		{% endfor %}
+		</ul>
+	{% endif %}
+	{% if parent.gallery_item_set %}
+		<ul>
+		{% for item in parent.gallery_item_set.all %}
+			<img width='auto' src='{{ item.thumbnail.url }}'>
+			<img width='auto' src='{{ MEDIA_URL }}{{ item.image }}'>
+			{{ item.display_name }}
+		{% endfor %}
+		</ul>
+	{% endif %}
+</li>

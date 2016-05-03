@@ -1,0 +1,79 @@
+{% include 'gallery/header.html'%}
+{% include 'gallery/primary-nav.html'%}
+
+<div class="container">
+
+<h2>{{group.display_name}}</h2>
+
+{% for sub_group in group.group_set.all%}
+	<div class="group col-md-12 col-sm-12 ">
+		<a class="img-rounded btn btn-standard" href='/gallery/{{ sub_group.id }}'>
+			{{sub_group.display_name}}
+		</a>
+	</div>
+
+{% endfor %}
+
+{% if group.description != None %}
+	<div id="group_description" class=" artist-statement col-md-12 col-sm-12 ">
+		<button type="button" 
+			class="img-rounded btn btn-standard" 
+			data-toggle="modal" 
+			data-target="#artist-statement"
+		>
+			Artist Statement
+		</button>
+	</div>
+{% endif %}
+
+{% for item in group.gallery_item_set.all%}
+	<div id="img-<?php echo $counter ?>" class="gallery-item col-md-4 col-sm-6 ">
+		<button type="button" 
+				class="img-rounded " 
+				data-toggle="modal" 
+				data-target="#img-{{item.id}}-popout"
+				style="background-image: url({{ item.thumbnail.url }})"
+						>
+		</button>
+	</div>
+{% endfor %}
+</div>
+
+{% if group.description != None %}
+	<div class="modal fade modal-lg" id="artist-statement" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+		<div class="modal-dialog ">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					<h4 class="modal-title">{{group.display_name}}</h4>
+				</div>
+				<div class="text-modal">
+					{{group.description}}
+				</div>
+			</div>
+		</div>
+	</div>
+{% endif %}
+
+{% for item in group.gallery_item_set.all%}
+	<div class="modal fade modal-lg" id="img-{{item.id}}-popout" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	<div class="modal-dialog ">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					<h4 class="modal-title">{{item.display_name}}</h4>
+			</div>
+			<div>
+				<img role="document" src="{{item.image.url}}" class="img-responsive"/>
+			</div>
+			<div class="modal-footer">
+				{% if item.description != None %}
+					{{item.description}}
+				{% endif %}
+			</div>
+		</div>
+	</div>
+	</div>
+{% endfor %}
+
+{% include 'gallery/footer.html'%}
